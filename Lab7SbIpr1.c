@@ -1,25 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int length;
+int n;
 int *p;
 int i;
 
 int main()
 {
-    printf ( "Enter the length of the sequence : \n" );
-    scanf ( "%d", &length );
+    printf ("Enter the length of the sequence :\n");
+    scanf ("%d",&n);
 
-    p = (int *) malloc( length * sizeof(int) );
+    p = (int *) malloc( n * sizeof(int) );
 
-    printf ( "Enter the sequence : \n" );
+    printf("Enter the sequence :\n");
 
-    for ( i = 0 ; i < length ; i++ )
-        scanf( "%d", &p[i] );
+    for (i=0;i<n;i++)
+        scanf("%d",&p[i]);
 
-    printf( "\n" );
-    for ( i = 0 ; i < length ; i++ )
-        printf ( "%d " , p[i] );
+    printf("\n");
+
+    for (i=0;i<n;i++)
+        printf ("%d ",p[i]);
 
     return 0;
 }
