@@ -7,32 +7,42 @@ struct node
    struct node *next;
 };
 
-struct node *the_head_of_the_list = NULL;
+struct node *head = NULL;
 struct node *current = NULL;
 
 
 void print_the_list()
 {
-  struct node *ptr = the_head_of_the_list;
+    struct node *ptr = head;
 
-   printf("\nThe head of the list ->");
-
-   while(ptr != NULL) {
+    while(ptr != NULL) {
       printf(" %d ->",ptr->data);
       ptr = ptr->next;
    }
+    printf(" NULL");
 
-   printf(" NULL\n");
     }
 
 void insert_link(int data)
 {
     struct node *link = (struct node*) malloc(sizeof(struct node));
     link->data = data;
-    link->next = the_head_of_the_list;
-    the_head_of_the_list = link;
+    link->next = head;
+    head = link;
 }
 
+void free_list(struct node* head)
+{
+   struct node* tmp;
+
+   while (head != NULL)
+    {
+       tmp = head;
+       head = head->next;
+       free(tmp);
+    }
+
+}
 
 int main()
  {
@@ -51,5 +61,6 @@ int main()
     }
 
    print_the_list();
+   free_list(head);
    return 0;
 }
