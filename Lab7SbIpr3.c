@@ -16,22 +16,18 @@ void concatenate ( struct node **p, struct node **q )
 {
     struct node *temp ;
 
-    /* if the first linked list is empty */
+
 if ( *p == NULL )
         *p = *q ;
     else
     {
-        /* if both linked lists are non-empty */
-if ( *q != NULL )
+
+        if ( *q != NULL )
         {
-            temp = *p ;  /* points to the starting of the first list */
-/* traverse the entire first linked list */
-while ( temp -> next != NULL )
-                temp = temp -> next ;
+            temp = *p ;
 
-            temp -> next = *q ;  /* concatenate the second list after the
-                                 first */
-
+            while ( temp -> next != NULL ) temp = temp -> next ;
+                temp -> next = *q ;
         }
     }
 }
