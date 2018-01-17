@@ -69,17 +69,25 @@ int main()
     struct node *head = NULL;
     int x;
     int i;
+    int sum=0;
+    float average;
     struct node *new_node = NULL;
+
     for(i=0;i<=24;i++)
     {
         x=rand() % 100 ;
+        sum=sum+x;
         printf("\nThe next value in the list is: %d",x);
         new_node = insert_link(x);
         Sorted_Insert(&head, new_node);
     }
 
+    average=sum/25;
+
     printf("\nThe list after the insertion sort:\n");
     print_the_list(head);
+    printf("\nThe sum of all the numbers in the list is: %d",sum);
+    printf("\nThe average of all the numbers in the list is: %f",average);
     free_list(head);
     return 0;
 }
